@@ -16,6 +16,11 @@ public class ConfSetting {
     public static ConfSetting create(String filename) {
         return new ConfSetting(filename);
     }
+    // 将filename对应的文件转成key value的形式
+    public Map<String, String> getConf() {
+        initReader(this.filename);
+        return this.conf;
+    }
     private void initReader(String filename) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
